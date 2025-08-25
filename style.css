@@ -1,0 +1,14 @@
+body{
+    background-image: linear-gradient(orange, black);
+    background-repeat: no-repeat;
+    height: 300px;
+}
+
+.categories{
+    width: 199%;
+    display: grid;
+    grid-template-columns: 50%, 50%;
+}
+
+.catimg{
+}
