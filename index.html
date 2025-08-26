@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-    <section class="categories">
+    <div class="wrapalign">
+        <section class="categories">
 
-        <div id="catimg">
-            <img src="coding_thumb.png" alt="coding_thumb" width="128px">
+            <div>
+                <img id="coding_thumb" onmouseenter="hoverCoding()" src="media/coding_thumb.png" alt="coding_thumb" width="128px">
+            </div>
+            <div>
+                <img onmouseenter="hoverDrawing()" src="media/drawing_thumb.png" alt="drawing_thumb" width="128px">
+            </div>
+            <div>
+                <img onmouseenter="hoverModeling()" src="media/3d_thumb.png" alt="3d_thumb" width="128px">
+            </div>
+            <div>
+                <img onmouseenter="hoverMusic()"" src="media/music_thumb.png" alt="music_thumb" width="128px">
+            </div>
+        </section>
+
+        <div id="info">
+           <h2 id="cat1"> </h2> 
+           <p id="desc"> </p>
+        
         </div>
-         <div id="catimg">
-        <img src="drawing_thumb.png" alt="drawing_thumb" width="128px">
-        </div>
-        <div id="catimg">
-        <img src="3d_thumb.png" alt="3d_thumb" width="128px">
-        </div>
-        <div id="catimg">
-        <img src="music_thumb.png" alt="music_thumb" width="128px">
-        </div>
-    </section>
-    
+    </div>
+
+    <script src="script.js"></script>
+
 </body>
+
 </html>
