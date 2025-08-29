@@ -10,7 +10,34 @@
 
 <body>
 
+    <section id="main" class="mainstyle">
+
+        
+        <div class="dropdown">
+            <button class="dropbtn">Themes</button>
+            <div class="dropdown-content">
+                <a href="#">
+                    <div onclick="coolTheme()">Cool</div>
+                </a>
+                <a href="#">
+                    <div onclick="cyberTheme()">Cyber</div>
+                </a>
+                <a href="#">
+                    <div onclick="funkyTheme()">Funky</div>
+                </a>
+                <a href="#">
+                    <div class="applyBtn" onclick="applyTheme()">Apply</div>
+                </a>
+            </div>
+        </div>
+        
+        <div id="introduction">
+        <h1>Welcome</h1>
+        <h3>This site will guide you through my creative interests and works.</h3>
+        </div>
     <div class="wrapalign">
+
+
         <section class="categories">
 
             <div>
@@ -32,10 +59,25 @@
            <p id="desc"> </p>
         
         </div>
+        <!-- <section class="demo1">
+            <button class="close">X</button>
+            <div>
+                Placeholder content yadayadayada hurrdurr
+                 <iframe width="560" height="315" src="https://www.youtube.com/embed/qWbgUxjm7RE?si=Ln4GH1diiA4coKcz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </iframe> 
+            </div>
+        
+        
+        </section> -->
     </div>
 
-    <script src="script.js"></script>
+</section>
 
+    <script src="script.js">
+
+        initTheme();    
+
+    </script>
 </body>
 
 </html>
