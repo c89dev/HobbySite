@@ -1,127 +1,36 @@
 body{
+    font-family: 'Courier New', Courier, monospace;
     background-color: black;
 }
-
-
-.mainstyle{
-    background-image: linear-gradient(rgb(138, 138, 138), rgb(59, 59, 59));
-    background-repeat: repeat;
-    height: 1025px;
+p{
+    color: white;
 }
-
-.mainstyle2{
-    background-image: linear-gradient(rgb(0, 136, 29), black);
-    background-repeat: repeat;
-    height: 1025px;
-}
-
-.mainstyle3{
-    background-image: linear-gradient(rgb(26, 89, 131), black);
-    background-repeat: repeat;
-    height: 1025px;
-}
-
-#welcome{
-    font-family: 'Courier New', Courier, monospace;
-    /* font-size: 60px; */
+h1{
+    color: white;
     justify-content: center;
     display: grid;
-    padding-top: 20%;
 }
-
-#introduction{
-    font-family: 'Courier New', Courier, monospace;
-    
-    width: ;
-    /* font-size: 60px; */
-    align-items: baseline;
+.headerHome{
+    color: white;
+     font-size: 30px; 
     justify-content: center;
     display: grid;
-    grid-template-rows: 140px 140px;
-    /* padding-top: 20%; */
+    padding: 5%;
 }
-
 .categories{
     justify-content: center;
-    padding-top: 5%;
-    padding-left: 20%;
-    width: auto;
-    /* height: auto; */
     display: grid;
-    align-items: center;
-    grid-template-columns: 140px 140px;
-    grid-template-rows: 140px 140px;
+    grid-auto-flow: column;
+    padding: 5%;
+    gap: 15px;
+    
 }
-
 #info{
     font-family: 'Courier New', Courier, monospace;
     color: white;
     padding-top: 5%;
 }
-
 #desc{
     width: 60%;
+    color: white;
 }
-
-.demo{
-    
-    position: absolute;
-    padding-left: 20%;
-    padding-bottom: 20%;
-    background-color: rgba(0, 0, 0, 0.507);
-    width: 50%;
-    height: 50%;
-    align-items: center;
-    display: grid;
-    offset: relative;
-    left: 20%;
-}
-
-.close{
-    background-color: rgba(0, 0, 0, 0.521);
-    color: rgb(255, 255, 255);
-    width: 125px;
-    height: 125px;
-    align-items: end;
-    justify-self: end;
-    
-}
-
-.wrapalign{
-    display: flex;
-    gap: 2%;
-}
-
-.dropdown{
-    position: absolute;
-    display: inline-block;
-}
-
-.dropdown-content{
-    display: none;
-    position: relative;
-    background-color: white;
-    min-width: 160px;
-    box-shadow 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a{
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.applyBtn{
-    color: rgb(24, 109, 165);
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {background-color: #ddd;;}
-
-.dropdown:hover .dropdown-content {display: block}
-
-.dropdown:hover .dropbtn {background-color: rgb(255, 255, 255);}

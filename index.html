@@ -10,74 +10,42 @@
 
 <body>
 
-    <section id="main" class="mainstyle">
+    <header class="headerHome">
 
-        
-        <div class="dropdown">
-            <button class="dropbtn">Themes</button>
-            <div class="dropdown-content">
-                <a href="#">
-                    <div onclick="coolTheme()">Cool</div>
-                </a>
-                <a href="#">
-                    <div onclick="cyberTheme()">Cyber</div>
-                </a>
-                <a href="#">
-                    <div onclick="funkyTheme()">Funky</div>
-                </a>
-                <a href="#">
-                    <div class="applyBtn" onclick="applyTheme()">Apply</div>
-                </a>
-            </div>
+        <h1>Ildjern Studio Blogs</h1>
+        <p>A guide through my creative interests and works.</p>
+    </header>
+
+    <section class="categories">
+        <div>
+            <img id="coding_thumb" onmouseenter="hoverCoding()" src="media/coding_thumb.png" alt="coding_thumb" width="128px">
+            <p>Coding</p>
         </div>
-        
-        <div id="introduction">
-        <h1>Welcome</h1>
-        <h3>This site will guide you through my creative interests and works.</h3>
+        <div>
+            <img onmouseenter="hoverDrawing()" src="media/drawing_thumb.png" alt="drawing_thumb" width="128px">
+            <p>Digital Art</p>
         </div>
-    <div class="wrapalign">
-
-
-        <section class="categories">
-
-            <div>
-                <img id="coding_thumb" onmouseenter="hoverCoding()" src="media/coding_thumb.png" alt="coding_thumb" width="128px">
-            </div>
-            <div>
-                <img onmouseenter="hoverDrawing()" src="media/drawing_thumb.png" alt="drawing_thumb" width="128px">
-            </div>
-            <div>
-                <img onmouseenter="hoverModeling()" src="media/3d_thumb.png" alt="3d_thumb" width="128px">
-            </div>
-            <div>
-                <img onmouseenter="hoverMusic()"" src="media/music_thumb.png" alt="music_thumb" width="128px">
-            </div>
-        </section>
-
-        <div id="info">
-           <h2 id="cat1"> </h2> 
-           <p id="desc"> </p>
-        
+        <div>
+            <img onmouseenter="hoverModeling()" src="media/3d_thumb.png" alt="3d_thumb" width="128px">
+            <p>3D Models</p>
         </div>
-        <!-- <section class="demo1">
-            <button class="close">X</button>
-            <div>
-                Placeholder content yadayadayada hurrdurr
-                 <iframe width="560" height="315" src="https://www.youtube.com/embed/qWbgUxjm7RE?si=Ln4GH1diiA4coKcz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </iframe> 
-            </div>
-        
-        
-        </section> -->
-    </div>
+        <div>
+            <img onmouseenter="hoverMusic()" src="media/music_thumb.png" alt="music_thumb" width="128px">
+            <p>Music & SFX</p>
+        </div>
+    </section>
+    <section>
+        <h1>Blog Feed</h1>
+    </section>
 
-</section>
+    <p id="info">
+       <h2 id="cat1"> </h2> 
+       <p id="desc"> </p>
+    
+    </p>
 
-    <script src="script.js">
 
-        initTheme();    
-
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
