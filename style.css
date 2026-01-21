@@ -27,8 +27,15 @@ figcaption{
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
-    padding: 4%;
+    padding: 2%;
 }
+article h2{
+
+    border-color: darkcyan;
+    border-top: darkcyan 1px solid;
+}
+
+
 .categories img{
 }
 #info{
