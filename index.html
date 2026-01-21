@@ -5,47 +5,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
 
-    <header class="headerHome">
+<header class="headerHome">
 
-        <h1>Ildjern Studio Blogs</h1>
-        <p>A guide through my creative interests and works.</p>
-    </header>
+    <h1>Ildjern Studio</h1>
+    <p>A guide through my creative interests and works.</p>
+</header>
 
-    <section class="categories">
-        <div>
-            <img id="coding_thumb" onmouseenter="hoverCoding()" src="media/coding_thumb.png" alt="coding_thumb" width="128px">
-            <p>Coding</p>
-        </div>
-        <div>
-            <img onmouseenter="hoverDrawing()" src="media/drawing_thumb.png" alt="drawing_thumb" width="128px">
-            <p>Digital Art</p>
-        </div>
-        <div>
-            <img onmouseenter="hoverModeling()" src="media/3d_thumb.png" alt="3d_thumb" width="128px">
-            <p>3D Models</p>
-        </div>
-        <div>
-            <img onmouseenter="hoverMusic()" src="media/music_thumb.png" alt="music_thumb" width="128px">
-            <p>Music & SFX</p>
-        </div>
-    </section>
-    <section>
-        <h1>Blog Feed</h1>
-    </section>
-
+    <h2>Showcase</h2>
+<section class="categories">
+    <div>
+        <img id="coding_thumb" onmouseenter="hoverCoding()" src="media/coding_thumb.png" alt="coding_thumb"
+             width="128px">
+        <p>Coding</p>
+    </div>
+    <div>
+        <img onmouseenter="hoverDrawing()" src="media/drawing_thumb.png" alt="drawing_thumb" width="128px">
+        <p>Digital Art</p>
+    </div>
+    <div>
+        <img onmouseenter="hoverModeling()" src="media/3d_thumb.png" alt="3d_thumb" width="128px">
+        <p>3D Models</p>
+    </div>
+    <div>
+        <img onmouseenter="hoverMusic()" src="media/music_thumb.png" alt="music_thumb" width="128px">
+        <p>Music & SFX</p>
+    </div>
+</section>
     <p id="info">
-       <h2 id="cat1"> </h2> 
-       <p id="desc"> </p>
-    
+        <h2 id="cat1"></h2>
+        <p id="desc"></p>
     </p>
 
+<h1>Blog Feed</h1>
+<section class="blogFeed">
+    <article>
+        <h2>Original character concept</h2>
+        <figure>
+            <img src=media/e.png alt="person wearing shamanistic deer skull mask running in the woods">
+            <figcaption>
+                Developing a character for a WIP project.
+            </figcaption>
+        </figure>
+    </article>
+</section>
 
-    <script src="script.js"></script>
+
+<script src="script.js"></script>
 </body>
 
 </html>
