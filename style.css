@@ -1,50 +1,105 @@
-body{
+body {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
-    background-color: black;
+    font-size: 16px;
+    @media screen and (width < 600px) {
+        .mainContainer{
+            grid-template-columns: 1fr;
+        }
+        .headerContainer {
+            
+            grid-template-columns: max-content 1fr;
+        }
+    }
 }
-h1, h2{
+
+h1, h2 {
     padding: 4%;
     display: flex;
     color: darkcyan;
     font-weight: bolder;
-    justify-content: center;
 }
-p{
+
+p {
     color: white;
 }
-figcaption{
-    color: darkcyan;
-}
-.headerHome{
-    justify-content: center;
+
+.navbar {
     display: grid;
-    padding: 5%;
+    grid-area: navbar;
+    background-color: darkcyan;
 }
-.categories, figure{
-    background-image: linear-gradient(rgb(20,20,20), black);
+.navbar > select {
+    background-color: darkcyan;
+}
+
+/*HEADER*/
+.headerContainer {
+    display: grid;
+    grid-template-areas: "navbar header";
+    grid-template-columns: 1fr 3fr ;
+}
+.header {
+    display: grid;
+    grid-area: header;
+    grid-template-columns: auto auto;
+    background-color: darkred;
+}
+/*MAIN CONTENT*/
+.mainContainer {
+
+    display: grid;
+    grid-template-areas: "navbar header sidebarRight"
+                "sidebarLeft mainContent sidebarRight";
+    grid-template-columns: 1fr 2fr 1fr;
+}
+.mainContent {
+    grid-area: mainContent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(20, 20, 20);
+}
+.categories {
+    display: grid;
+    grid-area: mainContent;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: fit-content;
+}
+
+.categories button {
+    background-image: linear-gradient(rgb(20, 20, 20), black);
+    color: black;
     justify-content: center;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 15px;
     padding: 2%;
 }
-article h2{
-
-    border-color: darkcyan;
-    border-top: darkcyan 1px solid;
+/*SIDEBARS*/
+.sidebarLeft {
+    grid-area: sidebarLeft;
+    background-color: purple;
 }
-
-
-.categories img{
+.sidebarRight {
+    grid-area: sidebarRight;
+    background-color: darkgreen;
 }
-#info{
+/*GENERAL*/
+figcaption {
+    color: darkcyan;
 }
-#desc{
+figure {
+    background-image: linear-gradient(rgb(20, 20, 20), black);
+    justify-content: center;
+    display: grid;
+    gap: 15px;
+    padding: 5%;
+}
+#desc {
     display: flex;
     justify-self: center;
     max-width: 50%;
 }
-.blogFeed img{
+.blogFeed img {
     max-width: 90%;
 }

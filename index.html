@@ -10,59 +10,77 @@
 
 <body>
 
-<header class="headerHome">
+<div class="headerContainer">
+    <nav class="navbar">
+        <select aria-label="navigation dropdown">
+            <option value="">Contact</option>
+            <option value="">Socials</option>
+            
+        </select>
+    </nav>
+    <header class="header">
+        <h1>Ildjern Studio</h1>
+        <img src="media/logo.png";
+    </header>
+</div>
 
-    <h1>Ildjern Studio</h1>
-    <p>A guide through my creative interests and works.</p>
-</header>
-
-    <h2>Showcase</h2>
-<section class="categories">
-    <div>
-        <img id="coding_thumb" onmouseenter="hoverCoding()" src="media/coding_thumb.png" alt="coding_thumb"
-             width="128px">
-        <p>Coding</p>
-    </div>
-    <div>
-        <img onmouseenter="hoverDrawing()" src="media/drawing_thumb.png" alt="drawing_thumb" width="128px">
-        <p>Digital Art</p>
-    </div>
-    <div>
-        <img onmouseenter="hoverModeling()" src="media/3d_thumb.png" alt="3d_thumb" width="128px">
-        <p>3D Models</p>
-    </div>
-    <div>
-        <img onmouseenter="hoverMusic()" src="media/music_thumb.png" alt="music_thumb" width="128px">
-        <p>Music & SFX</p>
-    </div>
-</section>
-    <p id="info">
+<div class="mainContainer">
+    <div class="sidebarLeft"></div>
+    <div class="mainContent">
+        <h2>Showcase</h2>
+        <section class="categories">
+            <button>
+                <img id="coding_thumb" onmouseenter="hoverCoding()" src="media/coding_thumb.png"
+                     alt="3D game model of a spaceship flying"
+                     width="128px">
+                <p>Coding</p>
+            </button>
+            <button>
+                <img onmouseenter="hoverDrawing()" src="media/drawing_thumb.png"
+                     alt="Simple shapes drawn in perspective"
+                     width="128px">
+                <p>Digital Art</p>
+            </button>
+            <button>
+                <img onmouseenter="hoverModeling()" src="media/3d_thumb.png" alt="3D model of the mask from Scream"
+                     width="128px">
+                <p>3D Models</p>
+            </button>
+            <button>
+                <img onmouseenter="hoverMusic()" src="media/music_thumb.png"
+                     alt="A volca sampler on top of an arturia MIDI controller" width="128px">
+                <p>Music & SFX</p>
+            </button>
+        </section>
+        <p id="info">
         <h2 id="cat1"></h2>
         <p id="desc"></p>
-    </p>
+        </p>
 
-<h1>Blog Feed</h1>
-<section class="blogFeed">
-    <article>
-        <article>
-            <h2>Original character concept</h2>
-            <figure>
-                <img src=media/e.png alt="person wearing shamanistic deer skull mask running in the woods">
-                <figcaption>
-                    Developing a character for a WIP project.
-                </figcaption>
-            </figure>
-        </article>
-        
-        <h2>Some paintings</h2>
-        <figure>
-            <img src=media/portraits.png alt="Digital painting of two female subjects">
-            <figcaption>
-                Based on 2 references from SketchDaily.com
-            </figcaption>
-        </figure>
-    </article>
-</section>
+        <h1>Blog Feed</h1>
+        <section class="blogFeed">
+            <article>
+                <h2>Some paintings</h2>
+                <figure>
+                    <img src=media/portraits.png alt="Digital painting of two female subjects">
+                    <figcaption>
+                        Based on 2 references from SketchDaily.com
+                    </figcaption>
+                </figure>
+            </article>
+            <article>
+                <h2>Original character concept</h2>
+                <figure>
+                    <img src=media/e.png alt="person wearing shamanistic deer skull mask running in the woods">
+                    <figcaption>
+                        Developing a character for a WIP project.
+                    </figcaption>
+                </figure>
+            </article>
+        </section>
+    </div>
+    <div class="sidebarRight"></div>
+</div>
 
 
 <script src="script.js"></script>
