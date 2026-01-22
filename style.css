@@ -1,6 +1,7 @@
 body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
+    margin: 0;
     @media screen and (width < 600px) {
         .mainContainer{
             grid-template-columns: 1fr;
@@ -37,12 +38,16 @@ p {
     display: grid;
     grid-template-areas: "navbar header";
     grid-template-columns: 1fr 3fr ;
+    max-height: 20vh;
 }
 .header {
     display: grid;
     grid-area: header;
     grid-template-columns: auto auto;
-    background-color: darkred;
+    background-color: black;
+}
+.header img{
+    max-width: 20vh;
 }
 /*MAIN CONTENT*/
 .mainContainer {
