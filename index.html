@@ -19,7 +19,7 @@
         </select>
     </nav>
     <header class="header">
-        <object data="media/logo_svg.svg" type="image/svg+xml">
+        <object class="logo" data="media/logo_svg.svg" type="image/svg+xml">
             <span class="fallback-info">no support</span>
         </object>    
     </header>
@@ -30,27 +30,27 @@
     <div class="mainContent">
         <h2>Showcase</h2>
         <section class="categories">
-            <button>
+            <button class="catBtn">
                 <img id="coding_thumb" onmouseenter="hoverCoding()" src="media/coding_thumb.png"
                      alt="3D game model of a spaceship flying"
                      width="128px">
-                <p>Coding</p>
+                <label>Coding</label>
             </button>
-            <button>
+            <button class="catBtn">
                 <img onmouseenter="hoverDrawing()" src="media/drawing_thumb.png"
                      alt="Simple shapes drawn in perspective"
                      width="128px">
-                <p>Digital Art</p>
+                <label>Digital Art</label>
             </button>
-            <button>
+            <button class="catBtn">
                 <img onmouseenter="hoverModeling()" src="media/3d_thumb.png" alt="3D model of the mask from Scream"
                      width="128px">
-                <p>3D Models</p>
+                <label>3D Models</label>
             </button>
-            <button>
+            <button class="catBtn">
                 <img onmouseenter="hoverMusic()" src="media/music_thumb.png"
                      alt="A volca sampler on top of an arturia MIDI controller" width="128px">
-                <p>Music & SFX</p>
+                <label>Music & SFX</label>
             </button>
         </section>
         <p id="info">

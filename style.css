@@ -5,10 +5,14 @@ body {
     @media screen and (width < 600px) {
         .mainContainer{
             grid-template-columns: 1fr;
+            width: 100vw;
         }
         .headerContainer {
-            
             grid-template-columns: max-content 1fr;
+            width: 100vw;
+        }
+        .logo{
+            
         }
     }
 }
@@ -37,17 +41,16 @@ p {
 .headerContainer {
     display: grid;
     grid-template-areas: "navbar header";
-    grid-template-columns: 1fr 3fr ;
-    max-height: 20vh;
+    grid-template-columns: 20% auto ;
 }
 .header {
     display: grid;
     grid-area: header;
-    grid-template-columns: auto auto;
     background-color: black;
 }
-.header img{
-    max-width: 20vh;
+.logo{
+    max-width: 100%;
+    height: fit-content;
 }
 /*MAIN CONTENT*/
 .mainContainer {
@@ -56,6 +59,8 @@ p {
     grid-template-areas: "navbar header sidebarRight"
                 "sidebarLeft mainContent sidebarRight";
     grid-template-columns: 1fr 2fr 1fr;
+    width: 100%;
+    max-width: 100vw;
 }
 .mainContent {
     grid-area: mainContent;
@@ -69,17 +74,27 @@ p {
     grid-area: mainContent;
     grid-template-columns: repeat(2, 1fr);
     max-width: fit-content;
+    gap: 20px;
 }
 
-.categories button {
+.catBtn{
     background-image: linear-gradient(rgb(20, 20, 20), black);
-    color: black;
     justify-content: center;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    padding: 2%;
+    border: none;
+    padding: 5px;
 }
+.catBtn:focus {
+    outline: darkcyan;
+    outline-style: solid;
+    
+}
+.catBtn label{
+    color: white;
+    width: fit-content;
+}
+
 /*SIDEBARS*/
 .sidebarLeft {
     grid-area: sidebarLeft;
@@ -98,7 +113,6 @@ figure {
     justify-content: center;
     display: grid;
     gap: 15px;
-    padding: 5%;
 }
 #desc {
     display: flex;
@@ -106,5 +120,5 @@ figure {
     max-width: 50%;
 }
 .blogFeed img {
-    max-width: 90%;
+    max-width: 80%;
 }
