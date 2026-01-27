@@ -1,0 +1,176 @@
+﻿:root {
+    --primary-color: #2563eb;
+    --secondary-color: #64748b;
+    --background: black;
+    --text-dark: #1e293b;
+    --text-light: #64748b;
+    --border-radius: 8px;
+    --spacing: 1rem;
+    --transition: all 0.3s ease;
+    --menu-height: 60px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navigation with CSS Grid */
+.navbar {
+    display: grid;
+    grid-template-areas: "logo nav";
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: black;
+    border-bottom: 1px solid #e2e8f0;
+    position: relative;
+}
+
+.nav-logo {
+    grid-area: logo;
+}
+
+/* Skjult checkbox for hamburger funksjonalitet */
+.menu-toggle {
+    display: none;
+}
+
+/* Hamburger button styling */
+.hamburger {
+    grid-area: hamburger;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: auto;
+}
+
+.hamburger-line {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--text-dark);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+/* Animer hamburger-linjene når menyen er åpen */
+.menu-toggle:checked ~ .hamburger .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle:checked ~ .hamburger .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle:checked ~ .hamburger .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Navigasjonsmeny */
+.nav-menu {
+    grid-area: nav;
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-color);
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* Mobile styles - RESPONSIVT DESIGN */
+@media (max-width: 768px) {
+    .navbar {
+        grid-template-areas: "logo hamburger";
+        grid-template-columns: 1fr auto;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        /* Skjult som standard */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    /* Vis meny når checkbox er checked */
+    .menu-toggle:checked ~ .nav-menu {
+        max-height: 400px; /* Nok plass til alle menyelementer */
+        padding: 1rem 0;
+    }
+
+    .nav-menu li {
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    .nav-menu li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 1rem 2rem;
+        border-radius: 0;
+    }
+
+    .nav-menu a:hover {
+        background: var(--background);
+    }
+
+    /* Animer hamburger rotation */
+    .menu-toggle:checked ~ .hamburger {
+        transform: rotate(90deg);
+    }
+}

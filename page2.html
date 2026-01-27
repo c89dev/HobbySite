@@ -1,16 +1,322 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="no">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8">
+    <title>Responsive bilder – Demo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="workshop-hamburger.css">
+    <style>
+        /* Layout og typografi */
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 2rem;
+            background: black;
+            color: #222;
+        }
+
+        h1 {
+            margin: 0 0 0.25rem;
+        }
+
+        p.lead {
+            margin: 0 0 1rem;
+            color: #444;
+            font-size: 1rem;
+            line-height: 1.35;
+        }
+
+        /* Grid for kortene */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            max-width: 760px;
+            margin: 1.5rem auto;
+            justify-content: center; /* sentrerer grid på siden */
+            align-items: stretch; /* alle rader får lik høyde */
+        }
+
+        .card {
+            width: 340px;
+            min-height: 270px;
+            background: rgb(20,20,20);
+            border-radius: 10px;
+            padding: 0.75rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.13);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        /* Media-beholder for bilder/picture */
+        .media {
+            width: 100%;
+            height: 100%; 
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Bilder og picture skal dekke hele beholderen */
+        .media img,
+        .media picture {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Etikett og kodeblokker */
+        .label {
+            display: none;
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 0.5rem;
+            text-align: center;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        pre {
+            display: none;
+            font-size: 0.8rem;
+            background: #f0f0f0;
+            padding: 0.5rem;
+            border-radius: 6px;
+            overflow: auto;
+            margin-top: 0.5rem;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+            white-space: pre-wrap;
+        }
+
+        /* Responsive kolonner */
+        @media (max-width: 1000px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* litt høyere mediebeholder på små skjermer */
+            .media {
+                height: 220px;
+            }
+        }
+    </style>
 </head>
 <body>
+<!--<h1>🖼️ Responsive bilder – Demo</h1>-->
+<!--<p class="lead">Eksempler på moderne bildepraksis: oppløsningsswitch (density/width descriptors), art direction, progressiv forbedring (AVIF/WebP/fallback), lazy loading og ytelsesoptimering. Åpne DevTools (F12) og inspiser `<img>`-elementene for å se hvilke bilder som laster.</p>-->
 
-    
-    
-    <script src="script.js"></script>
+<!-- BEGYNNER -->
+<div class="headerContainer">
+    <div class="container">
+        <nav class="navbar" role="navigation" aria-label="Hovednavigasjon">
+            <!--        <div class="nav-logo">LOGO</div>-->
+            <svg class="nav-logo">
+                <img src="media/logo_svg.svg">
+            </svg>
+
+            <!-- Hamburger menu using checkbox hack -->
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Toggle meny">
+            <label for="menu-toggle" class="hamburger" aria-label="Åpne meny" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </label>
+
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="page2.html">Gallery</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>>
+
+<h2 style="margin-top:2rem;color:#2d5a2d;border-bottom:3px solid #4ade80;padding-bottom:0.5rem">🟢 Gallery</h2>
+
+<div class="grid">
+    <!-- srcset with density descriptors (1x/2x) -->
+    <div class="card">
+        <div class="media">
+            <img src="media/gallery/fus.png" srcset="media/gallery/fus.png" alt="Høy DPI eksempel" loading="lazy" width="400" height="300">
+        </div>
+        <div class="label">📌 Oppløsningsswitch (density descriptors)</div>
+        <pre>&lt;img src="small.jpg" srcset="large.jpg 2x, small.jpg 1x" alt="..."&gt;</pre>
+    </div>
+
+    <!-- Basic picture with format fallback -->
+    <div class="card">
+        <div class="media">
+            <picture>
+                <source type="image/webp" srcset="media/gallery/figure24.png">
+                <img src="" alt="Landskap med WebP fallback" loading="lazy" width="800" height="600">
+            </picture>
+        </div>
+        <div class="label">📌 Format fallback: WebP → JPEG<br><small style="color:#888">Nettleser velger WebP hvis støttet</small></div>
+        <pre>&lt;picture&gt;&lt;source type="image/webp" srcset="img.webp"&gt;&lt;img src="img.jpg" alt="..." width="800" height="600"&gt;&lt;/picture&gt;</pre>
+    </div>
+
+    <!-- Lazy loading with dimensions -->
+    <div class="card">
+        <div class="media">
+            <img src="media/gallery/oil.png" alt="Lazy + dimensjoner" loading="lazy" decoding="async" width="800" height="500" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div class="label">📌 Lazy loading + dimensjoner<br><small style="color:#888">Forhindrer layout-shift (CLS)</small></div>
+        <pre>&lt;img src="img.jpg" loading="lazy" decoding="async" width="800" height="500" alt="..."&gt;</pre>
+    </div>
+
+    <!-- Simple responsive image with srcset -->
+    <div class="card">
+        <div class="media">
+            <img src="media/gallery/nana.png" srcset="media/gallery/nana.png" alt="Enkel responsive bilde" loading="lazy" width="600" height="400">
+        </div>
+        <div class="label">📌 Enkel srcset med width descriptors<br><small style="color:#888">Nettleser velger basert på viewport</small></div>
+        <pre>&lt;img src="img-600.jpg" srcset="img-600.jpg 600w, img-1200.jpg 1200w" alt="..." width="600" height="400"&gt;</pre>
+    </div>
+</div>
+
+<!-- MIDDELS NIVÅ -->
+<!--<h2 style="margin-top:2.5rem;color:#7c2d12;border-bottom:3px solid #fb923c;padding-bottom:0.5rem">🟡 Middels nivå – Avanserte teknikker</h2>-->
+
+<!--<div class="grid">-->
+<!--    &lt;!&ndash; Progressive enhancement: AVIF / WebP / JPG fallback &ndash;&gt;-->
+<!--    <div class="card">-->
+<!--        <div class="media">-->
+<!--            <picture>-->
+<!--                <source type="image/avif" srcset="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80&fm=avif">-->
+<!--                <source type="image/webp" srcset="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80&fm=webp">-->
+<!--                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Landskap - progressive enhancement" loading="lazy" width="800" height="600">-->
+<!--            </picture>-->
+<!--        </div>-->
+<!--        <div class="label">🔗 Progressiv forbedring: AVIF → WebP → JPEG<br><small style="color:#888">Best mulig format per nettleser</small></div>-->
+<!--        <pre>&lt;picture&gt;&lt;source type="image/avif" srcset="img.avif"&gt;&lt;source type="image/webp" srcset="img.webp"&gt;&lt;img src="img.jpg" alt="..." width="800" height="600"&gt;&lt;/picture&gt;</pre>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; srcset with width descriptors + sizes &ndash;&gt;-->
+<!--    <div class="card">-->
+<!--        <div class="media">-->
+<!--            <img-->
+<!--                    src="https://picsum.photos/id/1035/800/600"-->
+<!--                    srcset="https://picsum.photos/id/1035/400/300 400w, https://picsum.photos/id/1035/800/600 800w, https://picsum.photos/id/1035/1200/900 1200w"-->
+<!--                    sizes="(max-width:600px) 100vw, (max-width:1000px) 50vw, 33vw"-->
+<!--                    alt="Srcset widths eksempel" loading="lazy" width="800" height="600">-->
+<!--        </div>-->
+<!--        <div class="label">🔗 `srcset` + `sizes` (anbefalt)<br><small style="color:#888">Responsiv layout med automatisk valg</small></div>-->
+<!--        <pre>&lt;img src="img-800.jpg" srcset="img-400.jpg 400w, img-800.jpg 800w, img-1200.jpg 1200w" sizes="(max-width:600px) 100vw, 50vw" alt="..." width="800" height="600"&gt;</pre>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Art direction with picture: different crop for mobile &ndash;&gt;-->
+<!--    <div class="card">-->
+<!--        <div class="media">-->
+<!--            <picture>-->
+<!--                <source media="(max-width:600px)" srcset="https://picsum.photos/id/1043/600/800">-->
+<!--                <source media="(min-width:601px)" srcset="https://picsum.photos/id/1043/1200/500">-->
+<!--                <img src="https://picsum.photos/id/1043/1200/500" alt="Art direction eksempel" loading="lazy" width="1200" height="500">-->
+<!--            </picture>-->
+<!--        </div>-->
+<!--        <div class="label">🔗 Art direction: ulike bilder per viewport<br><small style="color:#888">Tett crop på mobil, bredt på desktop</small></div>-->
+<!--        <pre>&lt;picture&gt;&lt;source media="(max-width:600px)" srcset="mobile.jpg"&gt;&lt;img src="desktop.jpg" alt="..." width="1200" height="500"&gt;&lt;/picture&gt;</pre>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Background-image responsive + high-res media query &ndash;&gt;-->
+<!--    <div class="card">-->
+<!--        <div class="media" style="background-image:url('https://picsum.photos/id/1067/520/280');background-size:cover;background-position:center">-->
+<!--        </div>-->
+<!--        <div class="label">🔗 Bakgrunnsbilde + høyoppløst variant<br><small style="color:#888">For CSS background-images</small></div>-->
+<!--        <pre>@media (min-resolution: 2dppx) {-->
+<!--  .hero { background-image: url('hero@2x.jpg'); }-->
+<!--}</pre>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Responsive with object-fit art direction &ndash;&gt;-->
+<!--    <div class="card">-->
+<!--        <div class="media">-->
+<!--            <img src="https://picsum.photos/id/1072/800/600" srcset="https://picsum.photos/id/1072/400/600 400w, https://picsum.photos/id/1072/800/600 800w" sizes="(max-width:600px) 100vw, 50vw" alt="Object-fit art direction" loading="lazy" width="800" height="600" style="object-fit:cover">-->
+<!--        </div>-->
+<!--        <div class="label">🔗 `object-fit` for fleksibel tilpasning<br><small style="color:#888">Kontroller hvordan bilde fylles</small></div>-->
+<!--        <pre>&lt;img src="img.jpg" srcset="img-400w.jpg 400w, img-800w.jpg 800w" alt="..." style="object-fit: cover; width: 100%; height: 100%"&gt;</pre>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Combination: formats + sizes + lazy &ndash;&gt;-->
+<!--    <div class="card">-->
+<!--        <div class="media">-->
+<!--            <picture>-->
+<!--                <source type="image/avif" srcset="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80&fm=avif 1200w, https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80&fm=avif 800w">-->
+<!--                <source type="image/webp" srcset="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80&fm=webp 1200w, https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80&fm=webp 800w">-->
+<!--                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80" alt="Kombinert responsive" loading="lazy" width="1200" height="800">-->
+<!--            </picture>-->
+<!--        </div>-->
+<!--        <div class="label">🔗 Kombinert: format + width descriptor + lazy<br><small style="color:#888">Full responsive oppsett</small></div>-->
+<!--        <pre>&lt;picture&gt;&lt;source type="image/avif" srcset="img-800.avif 800w, img-1200.avif 1200w"&gt;&lt;source type="image/webp" srcset="img-800.webp 800w, img-1200.webp 1200w"&gt;&lt;img src="img.jpg" alt="..." loading="lazy" width="1200" height="800"&gt;&lt;/picture&gt;</pre>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; AVANSERT &ndash;&gt;-->
+<!--<h2 style="margin-top:2.5rem;color:#7c0a02;border-bottom:3px solid #ef4444;padding-bottom:0.5rem">🔴 Avansert – Produksjon & optimalisering</h2>-->
+
+<!--<div class="grid">-->
+<!--    &lt;!&ndash; Advanced: Multiple formats + full responsive &ndash;&gt;-->
+<!--    <div class="card">-->
+<!--        <div class="media">-->
+<!--            <picture>-->
+<!--                <source type="image/avif" srcset="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80&fm=avif 400w, https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80&fm=avif 800w, https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80&fm=avif 1200w">-->
+<!--                <source type="image/webp" srcset="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80&fm=webp 400w, https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80&fm=webp 800w, https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80&fm=webp 1200w">-->
+<!--                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Avansert responsive" srcset="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80 400w, https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80 800w, https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80 1200w" loading="lazy" width="800" height="600">-->
+<!--            </picture>-->
+<!--        </div>-->
+<!--        <div class="label">⚡ Komplett oppsett: Alle teknikker kombinert<br><small style="color:#888">Format + oppløsning + vidde + ytelse</small></div>-->
+<!--        <pre>&lt;picture&gt;&lt;source type="image/avif" srcset="... 400w, ... 800w, ... 1200w"&gt;&lt;source type="image/webp" srcset="... 400w, ... 800w, ... 1200w"&gt;&lt;img src="img.jpg" srcset="... 400w, ... 800w, ... 1200w" sizes="(max-width:600px) 100vw, 50vw" alt="..." loading="lazy" width="800" height="600"&gt;&lt;/picture&gt;</pre>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Art direction + format selection combo &ndash;&gt;-->
+<!--    <div class="card">-->
+<!--        <div class="media">-->
+<!--            <picture>-->
+<!--                <source media="(max-width:600px)" type="image/avif" srcset="https://picsum.photos/id/1043/600/800">-->
+<!--                <source media="(max-width:600px)" type="image/webp" srcset="https://picsum.photos/id/1043/600/800">-->
+<!--                <source media="(max-width:600px)" srcset="https://picsum.photos/id/1043/600/800">-->
+<!--                <source type="image/avif" srcset="https://picsum.photos/id/1043/1200/500">-->
+<!--                <source type="image/webp" srcset="https://picsum.photos/id/1043/1200/500">-->
+<!--                <img src="https://picsum.photos/id/1043/1200/500" alt="Art direction + format" loading="lazy" width="1200" height="500">-->
+<!--            </picture>-->
+<!--        </div>-->
+<!--        <div class="label">⚡ Art direction + moderne formater<br><small style="color:#888">Ulik bilde OG format per viewport</small></div>-->
+<!--        <pre>&lt;picture&gt;&lt;source media="(max-width:600px)" type="image/avif" srcset="mobile.avif"&gt;&lt;source media="(max-width:600px)" type="image/webp" srcset="mobile.webp"&gt;&lt;source media="(max-width:600px)" srcset="mobile.jpg"&gt;&lt;source type="image/avif" srcset="desktop.avif"&gt;&lt;source type="image/webp" srcset="desktop.webp"&gt;&lt;img src="desktop.jpg" alt="..." loading="lazy" width="1200" height="500"&gt;&lt;/picture&gt;</pre>-->
+<!--    </div>-->
+
+<!--</div>-->
+
+<!--<div style="background:#f9fafb;border-top:2px solid #e5e7eb;margin-top:2.5rem;padding:1.5rem;border-radius:8px;max-width:1100px;margin-left:auto;margin-right:auto">-->
+<!--    <h3 style="margin-top:0">💡 Tips for responsiv bildepraksis</h3>-->
+<!--    <ul style="color:#555;line-height:1.6">-->
+<!--        <li><strong>Alltid sett dimensjoner:</strong> `width` og `height` eller CSS `aspect-ratio` for å unngå Cumulative Layout Shift (CLS). Dette sikrer at nettleseren reserverer plass før bildet laster.</li>-->
+<!--        <li><strong>Bruk lazy loading:</strong> `loading="lazy"` og `decoding="async"` for bilder under folden. Dette reduserer innledende sidelastetid betraktelig.</li>-->
+<!--        <li><strong>Progressiv forbedring:</strong> Server moderne formater først (AVIF), så fallback (WebP, JPEG/PNG). Nettleseren bruker den første den forstår.</li>-->
+<!--        <li><strong>Generer flere størrelser:</strong> Lag 2–3 versjoner av hver bilde (400px, 800px, 1200px); la CDN eller build-prosess håndtere det automatisk.</li>-->
+<!--        <li><strong>Test ytelse:</strong> Bruk Lighthouse (F12 → Lighthouse) for å sjekke ytelse, CLS og bildekomprimering regelmessig. Mål: LCP < 2.5s, CLS < 0.1.</li>-->
+<!--        <li><strong>Bruk automatiserte verktøy:</strong> Sharp (Node.js), ImageMagick (CLI), Squoosh (web), eller Cloudinary (CDN med autogenerering) for bildeoptimalisering.</li>-->
+<!--    </ul>-->
+<!--</div>-->
+
+<!--<p style="max-width:1100px;margin:1.5rem auto;color:#888;font-size:0.9rem">-->
+<!--    ℹ️ <strong>Om demo-eksemplene:</strong> Disse bruker eksterne bildetjenester (Unsplash og Picsum.photos) som støtter dynamisk URL-basert optimalisering (format, størrelse via query-parametre). I dine egne prosjekter bør du:<br>-->
+<!--    • Genere flere format-varianter (AVIF, WebP, JPEG/PNG) av dine egne bilder som en del av build-prosessen<br>-->
+<!--    • Lagre filene og referere til dem direkte i HTML<br>-->
+<!--    • Eller bruk en bildekomprimerings-CDN som Cloudinary, imgix eller Vercel Image Optimization som genererer varianter automatisk-->
+<!--</p>-->
 </body>
 </html>

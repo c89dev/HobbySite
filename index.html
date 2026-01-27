@@ -5,23 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="style_index.css"/>
+    <link rel="stylesheet" href="workshop-hamburger.css"/>
 </head>
 
 <body>
 
 <div class="headerContainer">
-    <nav class="navbar">
-        <select aria-label="navigation dropdown">
-            <option value="">Contact</option>
-            <option value="">Socials</option>
-            
-        </select>
+    <div class="container">
+    <nav class="navbar" role="navigation" aria-label="Hovednavigasjon">
+<!--        <div class="nav-logo">LOGO</div>-->
+        <svg class="nav-logo">
+            <img src="media/logo_svg.svg">
+        </svg>
+
+        <!-- Hamburger menu using checkbox hack -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Toggle meny">
+        <label for="menu-toggle" class="hamburger" aria-label="Åpne meny" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </label>
+
+        <ul class="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="page2.html">Gallery</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
+</div>>
     <header class="header">
-        <object class="logo" data="media/logo_svg.svg" type="image/svg+xml">
-            <span class="fallback-info">no support</span>
-        </object>    
     </header>
 </div>
 
